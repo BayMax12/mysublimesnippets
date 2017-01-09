@@ -1,0 +1,35 @@
+<snippet>
+	<content><![CDATA[
+const int size = 1e6 + 9;
+int phi[size], mu[size];
+vector < int > prime;
+void preprocess(void)
+{
+	int i, j;
+
+	for (i = 1 ; i < size ; i++)
+	{
+		phi[i] = i;
+		mu[i] = 1;
+	}
+	for (i = 2 ; i < size ; i++)
+	{
+		if (chk[i] == 1)
+		{
+			prime.push_back(i);
+			for (j = i; j < size; j += i) {
+				if (j != i)
+					chk[j] = 0;
+				phi[j] /= i;
+				phi[j] *= i - 1;
+			}
+		}
+	}
+}
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<!-- <tabTrigger>hello</tabTrigger> -->
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

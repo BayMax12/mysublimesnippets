@@ -1,0 +1,36 @@
+<snippet>
+	<content><![CDATA[
+struct Point{
+  double x,y;
+  Point(double xx,double yy): x(xx),y(yy){}
+  inline friend ostream& operator<<(ostream& output , const Point& PT){
+    output<<"["<<PT.x<<","<<PT.y<<"]"<<endl;
+    return output;
+  }
+};
+int get_quadrant(const Point& p){
+  // assume origin to be in 4th quadrant
+  if(p.x>=0 && p.y>=0)
+    return 1;
+  if(p.x<0 && p.y>=0)
+    return 2;
+  if(p.x<0 && p.y<0)
+    return 3;
+  return 4;
+}
+double get_clockwise_angle(const Point& p){
+  double angle = 0.0;
+  int quadrant = get_quadrant(p);
+  angle = -atan2(p.x,-p.y);
+  return angle;
+}
+bool compare_points(const Point& a,const Point& b){
+  return get_clockwise_angle(a)<get_clockwise_angle(b);
+}
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>CWsort</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

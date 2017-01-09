@@ -1,0 +1,13 @@
+{
+	"color_scheme": "Packages/Monokai - Spacegray/Monokai - Spacegray.tmTheme",
+	"font_face": "Monaco",
+	"font_options":
+	[
+	],
+	"font_size": 12,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+  	"terminal": "xterm"
+}
